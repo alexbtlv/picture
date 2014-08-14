@@ -11,7 +11,9 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'devise'
 gem 'foundation-rails'
-gem 'carrierwave'
+gem 'dotenv-rails'
+gem 'carrierwave', '~> 0.10.0'
+gem "fog", "~> 1.3.1"
 gem "mini_magick", "~> 3.7.0"
 gem 'font-awesome-sass'
 
