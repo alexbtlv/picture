@@ -4,16 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Simple rails image gallery app" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div id="wrapper">
+      <%= render partial: 'layouts/navbar' %>
+      
+      <% flash.each do |type, message| %>
+        <div data-alert class="flash alert-box text-center <%= type %>">
+        <%= message %>
+        <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
+      
+      <div id="content">
+        <%= yield %>
+      </div>
+      
+      <%= render partial: 'layouts/footer' %>
+      <%= javascript_include_tag "application" %>
+    </div>
   </body>
 </html>

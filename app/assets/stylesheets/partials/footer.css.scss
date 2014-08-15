@@ -1,0 +1,13 @@
+footer {
+    position: absolute;
+    width: 100%;
+	clear: both;
+    bottom: 0;
+	padding-top: 50px;
+    margin: 0;
+    height: $footer_height; /* REMEMBER height = padding-bottom from('#content) */
+    background: #fff;
+    a {
+    	color: #333;
+    }
+}

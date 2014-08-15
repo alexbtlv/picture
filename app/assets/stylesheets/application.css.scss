@@ -10,8 +10,29 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require foundation_and_overrides
-
+ *= require font-awesome
+ *= require_self
  */
+
+@import 'modules/variables';
+@import 'partials/footer';
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#content {
+    padding-bottom: $footer_height; /* ATTENTION! padding-bottom should be equal to the footer height (this keeps the footer from overlapping the content) */
+}
+
+.pull-down {
+	padding-top:50px;
+}
