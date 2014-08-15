@@ -1,7 +1,7 @@
 <div class="row">
-  <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-clearing>
+  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
     <% @images.each do |image| %>
-      <li><%= link_to image_tag(image.asset.medium.url), image.asset.url %></li>
+      <li><%= link_to image_tag(image.asset.medium.url), image_path(image) %></li>
     <% end %>
   </ul>
 </div>

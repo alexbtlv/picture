@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+		<h1><%= @image.title.capitalize %></h1>
+	
+	<%= image_tag @image.asset.large.url %>
+</div>
 
-<%= image_tag @image.asset.medium.url %>
+<%= link_to("Previous Picture", @image.prev) if @image.prev %>
+<%= link_to("Next Picture", @image.next) if @image.next %>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+
+<%= link_to 'Edit', edit_image_path(@image) %>
