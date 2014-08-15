@@ -1,11 +1,11 @@
 <div class="row">
-		<h1><%= @image.title.capitalize %></h1>
-	
-	<%= image_tag @image.asset.large.url %>
+	<h1><%= @image.title.capitalize %></h1>
 </div>
-
-<%= link_to("Previous Picture", @image.prev) if @image.prev %>
-<%= link_to("Next Picture", @image.next) if @image.next %>
+<div class="row collapse text-center" id="image-container">
+	<%= image_tag @image.asset.large.url %>
+	<%= link_to(content_tag(:span,"", :id => "prev", :class => "nvgt"), @image.prev) if @image.prev %>
+	<%= link_to(content_tag(:span,"", :id => "next", :class => "nvgt"), @image.next) if @image.next %>
+</div>
 
 
 <%= link_to 'Edit', edit_image_path(@image) %>
