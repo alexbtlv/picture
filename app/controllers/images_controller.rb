@@ -1,10 +1,16 @@
 class ImagesController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.all.order(created_at: :desc)
+    @images_rows = @images.each_slice(4).to_a.paginate(page: params[:page], per_page: 3)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /images/1

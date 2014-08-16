@@ -1,0 +1,9 @@
+<% @images_rows.each do |images_row| %>
+<div class="row">
+		<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+			<% images_row.each do |image| %>
+				<%= render partial: 'image', locals: {image: image} %>
+			<% end %>
+		</ul>
+</div>
+<% end %>

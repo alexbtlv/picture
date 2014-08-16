@@ -1,7 +1,10 @@
-<div class="row">
-  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-    <% @images.each do |image| %>
-      <li><%= link_to image_tag(image.asset.medium.url), image_path(image), :class => "th" %></li>
-    <% end %>
-  </ul>
+<div class="row" id="images">
+	
+		<%= render partial: 'images_row' %>
+	
+</div>
+
+
+<div id="infinite-scrolling">
+	<%= will_paginate @images_rows %>
 </div>

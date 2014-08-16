@@ -1,0 +1,7 @@
+$('#images').append("<%= j render partial: 'images_row' %>");
+<% if @images_rows.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

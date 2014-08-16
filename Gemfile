@@ -16,6 +16,7 @@ gem 'carrierwave', '~> 0.10.0'
 gem "fog", "~> 1.3.1"
 gem "mini_magick", "~> 3.7.0"
 gem 'font-awesome-sass'
+gem 'will_paginate-foundation'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
