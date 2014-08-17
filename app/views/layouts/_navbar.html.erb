@@ -11,6 +11,11 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
+        <% if params[:action] == "show"  %>
+          <li><%= link_to edit_image_path(@image) do%>
+            <span class="fa fa-pencil-square-o fa-lg">Update Image</span>
+          <% end %></li>
+        <% end %>
         <li><%= link_to new_image_path do %>
           <span class="fa fa-cloud-upload fa-lg">Upload</span>
         <% end %></li>

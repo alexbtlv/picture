@@ -16,4 +16,11 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-//$(document).on("page:load", function() {$(document).foundation();})
+
+if (document.body.className.match('images') && document.body.className.match('new'))  {
+	$(".top-bar-section .right li").eq(0).addClass("active");
+};
+
+if (document.body.className.match('images') && document.body.className.match('index'))  {
+	$(".top-bar .left li").first().addClass("active");
+};
