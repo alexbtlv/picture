@@ -12,8 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'foundation-rails'
 gem 'dotenv-rails'
+gem "fog", "~> 1.20", require: "fog/aws/storage"
 gem 'carrierwave', '~> 0.10.0'
-gem "fog", "~> 1.3.1"
 gem "mini_magick", "~> 3.7.0"
 gem 'font-awesome-sass'
 gem 'will_paginate-foundation'
