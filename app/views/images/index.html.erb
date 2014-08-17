@@ -4,7 +4,10 @@
 	
 </div>
 
-
-<div id="infinite-scrolling">
-	<%= will_paginate @images_rows %>
+<div class="row">
+	<div class="small-12 small-centered column">
+		<div class="pagination-centered" id="infinite-scrolling">
+			<%= will_paginate @images_rows, renderer: FoundationPagination::Rails %>
+		</div>
+	</div>
 </div>

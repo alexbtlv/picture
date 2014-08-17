@@ -1,6 +1,56 @@
 <div class="row">
 	<div class="small-12 small-centered medium-8 medium-centered large-5 large-centered column">
 		<h1>New image</h1>
-		<%= render 'form' %>
+		<%= form_for @image, :html => { :multipart => true, "data-abide" => '' } do |f| %>
+		  <% if @image.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+		      <ul>
+		      <% @image.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		 	<div class="row">
+	          <div class="small-12 column name-field">
+	            <label>Title <small>required</small>
+	            <%= f.text_field :title, autofocus: true, "required pattern" => "[a-zA-Z]+" %>
+	            </label>
+	            <small class="error">Title is required and must be a string.</small>
+	          </div>
+	        </div>
+
+		  <%= f.label :description, "Description" %>
+		  <%= f.text_area :description, id: "expand" %>
+
+		  <fieldset>
+		    <legend>Attach Image</legend>
+
+		    <%= f.label :remote_asset_url, "Link for the image" %>
+		    <%= f.text_field :remote_asset_url, "required pattern" => "[a-zA-Z]+" %>
+		    <em>Or</em>
+		    <%= f.file_field :asset, :onchange => "showimagepreview(this)" %>
+		    <% if f.object.asset? %>
+		      <p>
+		      <%= image_tag f.object.asset.medium.url %>
+
+		      <em>Current image</em>
+		      </p>
+		      <br />
+		      <%= f.label :remove_asset %>
+		      <%= f.check_box :remove_asset %>
+		    <% end %>
+		    <div>
+		      <img id="imgprvw"/>
+		    </div>
+		  </fieldset>
+
+		  <div class="actions">
+		    <%= f.submit "Upload", class: "button round expand" %>
+		  </div>
+		<% end %>
 	</div>
 </div>

@@ -1,6 +1,50 @@
 <div class="row">
 	<div class="small-12 small-centered medium-8 medium-centered large-5 large-centered column">
-		<h1>Editing image</h1>
-		<%= render 'form' %>
+		<h1>Updating image</h1>
+		<%= form_for @image, :html => { :multipart => true } do |f| %>
+		  <% if @image.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+		      <ul>
+		      <% @image.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		  <%= f.label :title, "Title" %>
+		  <%= f.text_field :title %>
+
+		  <%= f.label :description, "Description" %>
+		  <%= f.text_area :description, id: "expand" %>
+
+		  <fieldset>
+		    <legend>Attach Image</legend>
+
+		    <%= f.label :remote_asset_url, "Link for the image" %>
+		    <%= f.text_field :remote_asset_url %>
+		    <em>Or</em>
+		    <%= f.file_field :asset, :onchange => "showimagepreview(this)" %>
+		    <% if f.object.asset? %>
+		      <p>
+		      <%= image_tag f.object.asset.medium.url %>
+
+		      <em>Current image</em>
+		      </p>
+		      <br />
+		      <%= f.label :remove_asset %>
+		      <%= f.check_box :remove_asset %>
+		    <% end %>
+		    <div>
+		      <img id="imgprvw"/>
+		    </div>
+		  </fieldset>
+
+		  <div class="actions">
+		    <%= f.submit "Update", class: "button round expand" %>
+		  </div>
+		<% end %>
 	</div>
 </div>
