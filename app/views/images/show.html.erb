@@ -1,5 +1,5 @@
 <div class="row">
-	<h1><%= @image.title.capitalize %></h1>
+	<h1><%= @image.title.split.map(&:capitalize)*' '%></h1>
 </div>
 <% if @image.asset? %>
 	<div class="row collapse text-center" id="image-container">
