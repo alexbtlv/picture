@@ -1,4 +1,3 @@
-
 require 'fog/aws/storage'
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'

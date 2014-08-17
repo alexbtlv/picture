@@ -30,7 +30,7 @@
 		    <legend>Attach Image</legend>
 
 		    <%= f.label :remote_asset_url, "Link for the image" %>
-		    <%= f.text_field :remote_asset_url, "required pattern" => "[a-zA-Z]+" %>
+		    <%= f.text_field :remote_asset_url %>
 		    <em>Or</em>
 		    <%= f.file_field :asset, :onchange => "showimagepreview(this)" %>
 		    <% if f.object.asset? %>
