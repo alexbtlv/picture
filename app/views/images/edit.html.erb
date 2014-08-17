@@ -44,6 +44,7 @@
 
 		  <div class="actions">
 		    <%= f.submit "Update", class: "button success round expand" %>
+		    <%= link_to "Delete Image", @image, method: :delete, class: 'button alert round expand', data: { confirm: "Are you sure?" }  %>
 		  </div>
 		<% end %>
 	</div>
